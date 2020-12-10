@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_subscribe_user,access_subscribe_user,model_subscribe_user,,1,1,1,1

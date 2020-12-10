@@ -1,0 +1,31 @@
+<odoo>
+
+    <template id="selection_product" name="Product Subscription" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='product_details']/h1" position="after">
+            <t t-if="product.sudo().qty_available &lt; 1">
+                    <form id="product_subscribe_form" style="border-bottom: dashed 1px #ccc;padding-bottom: 10px;">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="product_id" id="product_subscribe_id" t-att-value="product.id"/>
+
+                        <div id="subscribe_div" class="oe_snippet_body input-group" style="width:100% !important"
+                             data-list-id="1">
+
+                            <input id="product_subscribe_email" type="email" name="email" class="form-control"
+                                   placeholder="Enter email address"/>
+                            <span class="input-group-append">
+                                <button type="submit" style="border:1px solid #ced4da"
+                                        class="btn btn-primary js_subscribe_btn">
+                                    Subscribe
+                                </button>
+                            </span>
+                        </div>
+                        <div id="product_status" class="alert alert-success mb-0 d-none" role="status">
+                            We will be shortly responce, once the product available.
+                        </div>
+
+                    </form>
+                </t>
+        </xpath>
+    </template>
+
+</odoo>
